@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileCustomTableViewCell: UITableViewCell {
     
@@ -31,6 +32,15 @@ class ProfileCustomTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let stack: UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .leading
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 1
+        return stack
+    }()
+    
     
     //MARK: - Initializers
     
@@ -47,11 +57,26 @@ class ProfileCustomTableViewCell: UITableViewCell {
     //MARK: - Setup
     
     private func setupHierarchy() {
-        
+        stack.addArrangedSubview(nameLabel)
+        stack.addArrangedSubview(contentLabel)
+        addSubview(profileImageView)
+        addSubview(stack)
     }
     
     private func setupLayout() {
         
+        profileImageView.snp.makeConstraints { make in
+            make.left.equalTo(contentView).offset(10)
+            make.bottom.equalTo(contentView).offset(-10)
+            make.top.equalTo(contentView).offset(10)
+            
+            make.centerY.equalTo(contentView)
+            make.width.height.equalTo(60)
+        }
+        stack.snp.makeConstraints { make in
+            make.centerY.equalTo(profileImageView.snp.centerY)
+            make.left.equalTo(profileImageView.snp.right).offset(20)
+        }
     }
     
     //MARK: - Reuse
