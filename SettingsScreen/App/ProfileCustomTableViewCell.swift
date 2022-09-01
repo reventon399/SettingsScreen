@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileCustomTableViewCell: UITableViewCell {
+final class ProfileCustomTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
     
@@ -17,25 +17,31 @@ class ProfileCustomTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
+        
+        imageView.image = UIImage(named: "myPhoto")
         return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        
+        label.text = "Алексей Лосев"
         return label
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        
+        label.text = "Apple ID, iCloud, контент и покупки"
         return label
     }()
     
     private let stack: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .leading
-        stack.axis = .horizontal
+        stack.axis = .vertical
         stack.distribution = .fill
         stack.spacing = 1
         return stack
@@ -80,4 +86,6 @@ class ProfileCustomTableViewCell: UITableViewCell {
     }
     
     //MARK: - Reuse
+    
+    
 }
