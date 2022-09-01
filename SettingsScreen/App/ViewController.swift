@@ -10,12 +10,16 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    //MARK: - Outlets
+    
    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(ProfileCustomTableViewCell.self, forCellReuseIdentifier: "ProfileCustomTableViewCell")
         tableView.dataSource = self
         return tableView
     }()
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,8 @@ class ViewController: UIViewController {
         setupHierarchy()
         setupLayout()
     }
+    
+    //MARK: - Setup
     
     private func setupHierarchy() {
         view.addSubview(tableView)
@@ -38,6 +44,8 @@ class ViewController: UIViewController {
     }
     
 }
+
+    //MARK: - extension
 
 extension ViewController: UITableViewDataSource {
     
