@@ -69,9 +69,9 @@
 			children = (
 				91DD915728BF86AE001D3209 /* AppDelegate.swift */,
 				91DD915928BF86AE001D3209 /* SceneDelegate.swift */,
-				91DD917228BFAB81001D3209 /* Model.swift */,
 				91DD915B28BF86AE001D3209 /* ViewController.swift */,
 				91DD917428BFB548001D3209 /* ProfileCustomTableViewCell.swift */,
+				91DD917228BFAB81001D3209 /* Model.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";

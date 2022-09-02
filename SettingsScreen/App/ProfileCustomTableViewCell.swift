@@ -13,14 +13,22 @@ final class ProfileCustomTableViewCell: UITableViewCell {
     var items: SettingsItems? {
         didSet {
             profileImageView.image = items?.cellImage
-            nameLabel.text = items?.cellTitle
+            cellTitleLabel.text = items?.cellTitle
+            cellIconImageView.image = items?.cellImage
+            imageContainer.backgroundColor = items?.cellBackgroundColor
+            cellSwitcher.isHidden = ((items?.isSwitchActivate) != nil)
+            notificationImage.image = items?.notificationImage
+            satusLabel.text = items?.statusLabel
             
+            if items?.isSwitchActivate == false {
+                accessoryType = .disclosureIndicator
+            }
         }
     }
     
     //MARK: - Outlets
     
-    private let profileImageView: UIImageView = {
+    private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
@@ -28,27 +36,52 @@ final class ProfileCustomTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        return label
-    }()
-    
-    private let contentLabel: UILabel = {
+    private lazy var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.text = "Apple ID, iCloud, контент и покупки"
         return label
     }()
     
-    private let stack: UIStackView = {
-        let stack = UIStackView()
-        stack.alignment = .leading
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.spacing = 1
-        return stack
+    private lazy var cellTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        return label
     }()
+    
+    private lazy var cellIconImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    private lazy var imageContainer: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    private lazy var cellSwitcher: UISwitch = {
+        let swither = UISwitch()
+        return swither
+    }()
+    
+    private lazy var notificationImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private lazy var satusLabel: UILabel = {
+        let label = UILabel()
+        label.tintColor = .systemGray
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+  
+    
     
     
     //MARK: - Initializers
@@ -66,29 +99,65 @@ final class ProfileCustomTableViewCell: UITableViewCell {
     //MARK: - Setup
     
     private func setupHierarchy() {
-        stack.addArrangedSubview(nameLabel)
-        stack.addArrangedSubview(contentLabel)
-        addSubview(profileImageView)
-        addSubview(stack)
+        contentView.addSubview(contentLabel)
+        contentView.addSubview(cellTitleLabel)
+        contentView.addSubview(imageContainer)
+        imageContainer.addSubview(cellIconImageView)
+        imageContainer.addSubview(profileImageView)
+        contentView.addSubview(cellSwitcher)
+        contentView.addSubview(notificationImage)
+        contentView.addSubview(satusLabel)
     }
     
     private func setupLayout() {
         
-        profileImageView.snp.makeConstraints { make in
-            make.left.equalTo(contentView).offset(10)
-            make.bottom.equalTo(contentView).offset(-10)
-            make.top.equalTo(contentView).offset(10)
             
-            make.centerY.equalTo(contentView)
-            make.width.height.equalTo(60)
+        
+        
+        
+        
+        
+        if ((items?.isZeroSection) != nil) {
+            profileImageView.snp.makeConstraints { make in
+                make.left.equalTo(contentView).offset(10)
+                make.bottom.equalTo(contentView).offset(-10)
+                make.top.equalTo(contentView).offset(10)
+                make.centerY.equalTo(contentView)
+                
+            }
+           
+            cellTitleLabel.snp.makeConstraints { make in
+                make.top.equalTo(contentView.snp.top).offset(10)
+                make.left.equalTo(profileImageView.snp.left).offset(10)
+            }
+            contentLabel.snp.makeConstraints { make in
+                
+            }
+        } else {
+            imageContainer.snp.makeConstraints { make in
+                make.centerY.equalTo(contentView)
+                make.left.equalTo(contentView.snp.left).offset(20)
+                make.width.height.equalTo(25)
+            }
+            cellIconImageView.snp.makeConstraints { make in
+                make.centerY.equalTo(imageContainer.snp.centerY)
+                make.width.height.equalTo(20)
+            }
+            cellTitleLabel.snp.makeConstraints { make in
+                make.left.equalTo(imageContainer.snp.right).offset(10)
+                make.centerY.equalTo(contentView)
+            }
         }
-        stack.snp.makeConstraints { make in
-            make.centerY.equalTo(profileImageView.snp.centerY)
-            make.left.equalTo(profileImageView.snp.right).offset(20)
-        }
+        
     }
     
+
     //MARK: - Reuse
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+        self.items = nil
+    }
     
 }
