@@ -55,7 +55,7 @@ extension SettingsItems {
                               cellBackgroundColor: .systemBlue,
                               cellTitle: "VPN",
                               statusLabel: "Не подключено",
-                              isSwitchActivate: false)],
+                              isSwitchActivate: true)],
         
         // second section
         [SettingsItems(cellImage: UIImage(systemName: "bell.badge.fill")!,

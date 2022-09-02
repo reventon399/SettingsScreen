@@ -69,9 +69,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath) as? ProfileCustomTableViewCell
-        cell?.items = settingItems?[indexPath.section][indexPath.row]
-        return cell ?? UITableViewCell()
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath) as? ProfileCustomTableViewCell
+            cell?.items = settingItems?[indexPath.section][indexPath.row]
+            
+            return cell ?? UITableViewCell()
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath) as? ProfileCustomTableViewCell
+            cell?.items = settingItems?[indexPath.section][indexPath.row]
+            
+            return cell ?? UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
