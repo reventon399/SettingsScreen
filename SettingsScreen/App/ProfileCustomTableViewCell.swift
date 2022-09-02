@@ -10,6 +10,14 @@ import SnapKit
 
 final class ProfileCustomTableViewCell: UITableViewCell {
     
+    var items: SettingsItems? {
+        didSet {
+            profileImageView.image = items?.cellImage
+            nameLabel.text = items?.cellTitle
+            
+        }
+    }
+    
     //MARK: - Outlets
     
     private let profileImageView: UIImageView = {
@@ -17,23 +25,18 @@ final class ProfileCustomTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
-        
-        imageView.image = UIImage(named: "myPhoto")
         return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        
-        label.text = "Алексей Лосев"
         return label
     }()
     
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        
         label.text = "Apple ID, iCloud, контент и покупки"
         return label
     }()

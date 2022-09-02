@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(ProfileCustomTableViewCell.self, forCellReuseIdentifier: "ProfileCustomTableViewCell")
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingItems = SettingsItems.settingsCell
         view.backgroundColor = .white
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -48,20 +50,32 @@ class ViewController: UIViewController {
 
     //MARK: - extension
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        10
+        if indexPath.section == 0 {
+            return 100
+        } else {
+            return 50
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingItems?[section].count ?? 0
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return settingItems?.count ?? 0
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath) as? ProfileCustomTableViewCell
+        cell?.items = settingItems?[indexPath.section][indexPath.row]
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
