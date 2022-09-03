@@ -15,6 +15,21 @@ class DetailViewController: UIViewController {
     //MARK: - Outlets
     
     
+    private lazy var cellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 150
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 5
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
+        return imageView
+    }()
+    
+    private lazy var cellNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        return label
+    }()
     
     //MARK: - Lifecycle
     
