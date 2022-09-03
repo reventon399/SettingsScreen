@@ -11,9 +11,7 @@ class DetailViewController: UIViewController {
     
     var items: SettingsItems?
     
-    
     //MARK: - Outlets
-    
     
     private lazy var imageContainer: UIView = {
         let view = UIView()
@@ -31,7 +29,7 @@ class DetailViewController: UIViewController {
     }()
     
     private lazy var cellIconImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
@@ -45,7 +43,7 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         setupHierarchy()
         setupLayout()
-        fillSettings() 
+        fillSettings()
     }
     
     //MARK: - Setup
@@ -53,7 +51,7 @@ class DetailViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(imageContainer)
         imageContainer.addSubview(cellIconImageView)
-//        view.addSubview(cellIconImageView)
+        //        view.addSubview(cellIconImageView)
         view.addSubview(cellNameLabel)
     }
     
@@ -78,6 +76,5 @@ class DetailViewController: UIViewController {
         cellIconImageView.image = items?.cellImage
         cellNameLabel.text = items?.cellTitle
         imageContainer.backgroundColor = items?.cellBackgroundColor
-    }
-    
+    }    
 }

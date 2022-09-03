@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileTableViewCell: UITableViewCell {
+final class ProfileTableViewCell: UITableViewCell {
     
     static var identifier = "ProfileTableViewCell"
     
@@ -45,7 +45,6 @@ class ProfileTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         return label
     }()
-    
     
     //MARK: - Initializers
     
@@ -85,10 +84,8 @@ class ProfileTableViewCell: UITableViewCell {
             make.left.equalTo(profileImageView.snp.right).offset(10)
             make.bottom.equalTo(contentView).offset(-15)
         }
-        
     }
     
-
     //MARK: - Reuse
     
     override func prepareForReuse() {
@@ -96,5 +93,4 @@ class ProfileTableViewCell: UITableViewCell {
         self.accessoryType = .none
         self.items = nil
     }
-    
 }
