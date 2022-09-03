@@ -84,7 +84,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
         tableView.deselectRow(at: indexPath, animated: true)
+        viewController.items = settingItems?[indexPath.section][indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     

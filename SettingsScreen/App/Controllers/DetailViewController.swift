@@ -18,10 +18,8 @@ class DetailViewController: UIViewController {
     private lazy var cellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 150
+        imageView.layer.cornerRadius = 140
         imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 5
-        imageView.layer.borderColor = UIColor.darkGray.cgColor
         return imageView
     }()
     
