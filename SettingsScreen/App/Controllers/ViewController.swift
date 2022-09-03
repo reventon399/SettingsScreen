@@ -12,11 +12,13 @@ class ViewController: UIViewController {
     
     private var settingItems: [[SettingsItems]]?
     
+    
     //MARK: - Outlets
     
-   private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(ProfileCustomTableViewCell.self, forCellReuseIdentifier: "ProfileCustomTableViewCell")
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(ProfileCustomTableViewCell.self, forCellReuseIdentifier: ProfileCustomTableViewCell.identifier)
+        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -71,15 +73,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath) as? ProfileCustomTableViewCell
-            cell?.items = settingItems?[indexPath.section][indexPath.row]
-            
-            return cell ?? UITableViewCell()
+            let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
+            profileCell.items = settingItems?[indexPath.section][indexPath.row]
+            return profileCell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCustomTableViewCell", for: indexPath) as? ProfileCustomTableViewCell
-            cell?.items = settingItems?[indexPath.section][indexPath.row]
-            
-            return cell ?? UITableViewCell()
+            let mainCell = tableView.dequeueReusableCell(withIdentifier: ProfileCustomTableViewCell.identifier, for: indexPath) as! ProfileCustomTableViewCell
+            mainCell.items = settingItems?[indexPath.section][indexPath.row]
+            return mainCell
         }
     }
     
