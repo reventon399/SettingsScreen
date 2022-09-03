@@ -38,15 +38,31 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         setupHierarchy()
         setupLayout()
+        fillSettings() 
     }
     
     //MARK: - Setup
     
     private func setupHierarchy() {
-        
+        view.addSubview(cellImageView)
+        view.addSubview(cellNameLabel)
     }
     
     private func setupLayout() {
+        cellImageView.snp.makeConstraints { make in
+            make.center.equalTo(view)
+            make.width.height.equalTo(300)
+        }
         
+        cellNameLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(cellImageView.snp.bottom).offset(20)
+        }
     }
+    
+    private func fillSettings() {
+        cellImageView.image = items?.cellImage
+        cellNameLabel.text = items?.cellTitle
+    }
+    
 }
