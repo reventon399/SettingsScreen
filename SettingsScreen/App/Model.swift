@@ -13,7 +13,7 @@ struct SettingsItems {
     var cellBackgroundColor: UIColor?
     var cellTitle: String
     var statusLabel: String?
-    var isSwitchActivate: Bool
+    var isSwitchHidden: Bool
     var isZeroSection: Bool?
 }
 
@@ -24,74 +24,74 @@ extension SettingsItems {
         // zero section
         [SettingsItems(cellImage: UIImage(named: "myPhoto") ?? UIImage(systemName: "house")!,
                               cellTitle: "Алексей Лосев",
-                              isSwitchActivate: false,
+                              isSwitchHidden: false,
                               isZeroSection: true)],
         
         // first section
         [SettingsItems(cellImage: UIImage(systemName: "airplane")!,
                               cellBackgroundColor: .orange,
                               cellTitle: "Авиарежим",
-                              isSwitchActivate: true),
+                              isSwitchHidden: false),
          SettingsItems(cellImage: UIImage(systemName: "wifi")!,
                               cellBackgroundColor: .systemBlue,
                               cellTitle: "Wi-Fi",
                               statusLabel: "Rtk-7",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "b.circle")!,
                               cellBackgroundColor: .systemBlue,
                               cellTitle: "Bluetooth",
                               statusLabel: "Не подключен",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "antenna.radiowaves.left.and.right")!,
                               cellBackgroundColor: .systemGreen,
                               cellTitle: "Сотовая связь",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "personalhotspot")!,
                               cellBackgroundColor: .systemGreen,
                               cellTitle: "Режим модема",
                               statusLabel: "Выкл",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "v.circle")!,
                               cellBackgroundColor: .systemBlue,
                               cellTitle: "VPN",
                               statusLabel: "Не подключено",
-                              isSwitchActivate: true)],
+                              isSwitchHidden: true)],
         
         // second section
         [SettingsItems(cellImage: UIImage(systemName: "bell.badge.fill")!,
                               cellBackgroundColor: .systemRed,
                               cellTitle: "Уведомления",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "hifispeaker")!,
                               cellBackgroundColor: .systemRed,
                               cellTitle: "Звуки, тактильные сигналы",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "moon.fill")!,
                               cellBackgroundColor: .systemPurple,
                               cellTitle: "Фокусирование",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "timer")!,
                               cellBackgroundColor: .systemPurple,
                               cellTitle: "Экранное время",
-                              isSwitchActivate: false)],
+                              isSwitchHidden: true)],
         
         // third section
         [SettingsItems(cellImage: UIImage(systemName: "gear")!,
                               notificationImage: UIImage(named: "notification")!,
                               cellBackgroundColor: .systemGray3,
                               cellTitle: "Основные",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "switch.2")!,
                               cellBackgroundColor: .systemGray3,
                               cellTitle: "Пункт управления",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "textformat.size")!,
                               cellBackgroundColor: .systemBlue,
                               cellTitle: "Экран и яркость",
-                              isSwitchActivate: false),
+                              isSwitchHidden: true),
          SettingsItems(cellImage: UIImage(systemName: "battery.100")!,
                               cellBackgroundColor: .systemGreen,
                               cellTitle: "Аккумулятор",
-                              isSwitchActivate: false)]
+                              isSwitchHidden: true)]
     ]
 }
