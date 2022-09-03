@@ -17,7 +17,7 @@ final class ProfileCustomTableViewCell: UITableViewCell {
             cellTitleLabel.text = items?.cellTitle
             cellIconImageView.image = items?.cellImage
             imageContainer.backgroundColor = items?.cellBackgroundColor
-            cellSwitcher.isHidden = items!.isSwitchHidden
+            cellSwitcher.isHidden = items?.isSwitchHidden ?? true
             notificationImage.image = items?.notificationImage
             satusLabel.text = items?.statusLabel
             
@@ -28,7 +28,6 @@ final class ProfileCustomTableViewCell: UITableViewCell {
     }
     
     //MARK: - Outlets
-  
     
     private lazy var cellTitleLabel: UILabel = {
         let label = UILabel()
@@ -37,7 +36,7 @@ final class ProfileCustomTableViewCell: UITableViewCell {
     }()
     
     private lazy var cellIconImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
@@ -68,9 +67,6 @@ final class ProfileCustomTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
-  
-    
-    
     
     //MARK: - Initializers
     
@@ -123,7 +119,6 @@ final class ProfileCustomTableViewCell: UITableViewCell {
         }
     }
     
-
     //MARK: - Reuse
     
     override func prepareForReuse() {
@@ -131,5 +126,4 @@ final class ProfileCustomTableViewCell: UITableViewCell {
         self.accessoryType = .none
         self.items = nil
     }
-    
 }

@@ -47,27 +47,14 @@ class ViewController: UIViewController {
             make.top.right.bottom.left.equalTo(view)
         }
     }
-    
 }
 
-    //MARK: - extension
+//MARK: - Extension
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 100
-        } else {
-            return 50
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingItems?[section].count ?? 0
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return settingItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,8 +71,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
         tableView.deselectRow(at: indexPath, animated: true)
+        viewController.items = settingItems?[indexPath.section][indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return settingItems?.count ?? 0
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 100
+        } else {
+            return 50
+        }
+    }
 }
