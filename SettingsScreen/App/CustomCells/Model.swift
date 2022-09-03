@@ -24,7 +24,7 @@ extension SettingsItems {
         // zero section
         [SettingsItems(cellImage: UIImage(named: "myPhoto") ?? UIImage(systemName: "house")!,
                               cellTitle: "Алексей Лосев",
-                              isSwitchHidden: false,
+                              isSwitchHidden: true,
                               isZeroSection: true)],
         
         // first section

@@ -17,7 +17,7 @@ final class ProfileCustomTableViewCell: UITableViewCell {
             cellTitleLabel.text = items?.cellTitle
             cellIconImageView.image = items?.cellImage
             imageContainer.backgroundColor = items?.cellBackgroundColor
-            cellSwitcher.isHidden = items!.isSwitchHidden
+            cellSwitcher.isHidden = items?.isSwitchHidden ?? true
             notificationImage.image = items?.notificationImage
             satusLabel.text = items?.statusLabel
             
