@@ -11,7 +11,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     private var settingItems: [[SettingsItems]]?
-    
+    private var item: SettingsItems?
     
     //MARK: - Outlets
     
@@ -75,6 +75,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         viewController.items = settingItems?[indexPath.section][indexPath.row]
         navigationController?.pushViewController(viewController, animated: true)
+        print("Была нажата ячейка -> \(String(describing: settingItems![indexPath.section][indexPath.row].cellTitle))")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -87,5 +88,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             return 50
         }
+    }
+    
+    private func descripingPressedCell() {
+        
     }
 }
