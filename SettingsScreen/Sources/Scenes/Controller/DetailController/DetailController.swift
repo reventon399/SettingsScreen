@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailController: UIViewController {
     
     var items: SettingsItems?
     
