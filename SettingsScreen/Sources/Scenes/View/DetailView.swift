@@ -17,6 +17,11 @@ class DetailView: UIView {
     func configureView(with model: [[SettingsItems]]) {
         self.settingsItems = model
     }
+    
+    func configure(items: SettingsItems) {
+        cellNameLabel.text = items.cellTitle
+        cellIconImageView.image = items.cellImage
+    }
     //MARK: - Outlets
     
     lazy var imageContainer: UIView = {

@@ -23,15 +23,17 @@ final class DetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillSettings()
+        view.backgroundColor = .white
+        view = DetailView()
     }
 }
 
 extension DetailController {
-    private func fillSettings() {
-        detailView?.cellIconImageView.image = items?.cellImage
-        detailView?.cellNameLabel.text = items?.cellTitle
-        detailView?.imageContainer.backgroundColor = items?.cellBackgroundColor
+    func fillSettings(items: SettingsItems) {
+//        detailView?.cellIconImageView.image = items.cellImage
+//        detailView?.cellNameLabel.text = items.cellTitle
+//        detailView?.imageContainer.backgroundColor = items.cellBackgroundColor
+        detailView?.configure(items: items)
     }
 }
 
