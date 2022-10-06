@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailController: UIViewController {
+final class DetailController: UIViewController {
     
     var items: SettingsItems?
     //MARK: - Private properties
@@ -18,7 +18,7 @@ class DetailController: UIViewController {
     }
     
     private var model: SettingsModel?
-
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -33,5 +33,5 @@ extension DetailController {
         detailView?.cellNameLabel.text = items?.cellTitle
         detailView?.imageContainer.backgroundColor = items?.cellBackgroundColor
     }
-    }
+}
 

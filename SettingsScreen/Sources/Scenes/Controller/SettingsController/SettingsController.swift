@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 final class SettingsController: UIViewController {
     
@@ -17,7 +16,7 @@ final class SettingsController: UIViewController {
         return view as? SettingsView
     }
     
-    private var model:  SettingsModel?
+    private var model: SettingsModel?
     
     //MARK: - Lifecycle
     
@@ -41,13 +40,11 @@ extension SettingsController {
             settingsView?.configureView(with: [model])
         }
     }
-    
     func setupDelegates() {
         settingsView?.tableView.dataSource = self
         settingsView?.tableView.delegate = self
     }
 }
-
 
 extension SettingsController: UITableViewDataSource, UITableViewDelegate {
     
@@ -73,7 +70,7 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         viewController.items =  model?.createSettings()[indexPath.section][indexPath.row]
         navigationController?.pushViewController(viewController, animated: true)
-        print("Была нажата ячейка -> \(String(describing:  model?.createSettings()[indexPath.section][indexPath.row].cellTitle))")
+        print("Была нажата ячейка -> \(String(describing:  model?.createSettings()[indexPath.section][indexPath.row].cellTitle ?? ""))")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

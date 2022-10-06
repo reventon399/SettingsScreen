@@ -19,14 +19,14 @@ class DetailView: UIView {
     }
     //MARK: - Outlets
     
-     lazy var imageContainer: UIView = {
+    lazy var imageContainer: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         return view
     }()
     
-     lazy var cellNameLabel: UILabel = {
+    lazy var cellNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
         label.numberOfLines = 0
@@ -34,7 +34,7 @@ class DetailView: UIView {
         return label
     }()
     
-     lazy var cellIconImageView: UIImageView = {
+    lazy var cellIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
