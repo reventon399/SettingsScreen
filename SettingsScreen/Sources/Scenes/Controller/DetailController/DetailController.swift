@@ -10,71 +10,28 @@ import UIKit
 class DetailController: UIViewController {
     
     var items: SettingsItems?
+    //MARK: - Private properties
     
-    //MARK: - Outlets
+    private var detailView: DetailView? {
+        guard isViewLoaded else { return nil }
+        return view as? DetailView
+    }
     
-    private lazy var imageContainer: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 8
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    private lazy var cellNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private lazy var cellIconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
+    private var model: SettingsModel?
+
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        setupHierarchy()
-        setupLayout()
         fillSettings()
     }
-    
-    //MARK: - Setup
-    
-    private func setupHierarchy() {
-        view.addSubview(imageContainer)
-        imageContainer.addSubview(cellIconImageView)
-        //        view.addSubview(cellIconImageView)
-        view.addSubview(cellNameLabel)
-    }
-    
-    private func setupLayout() {
-        imageContainer.snp.makeConstraints { make in
-            make.center.equalTo(view)
-            make.width.height.equalTo(300)
-        }
-        cellIconImageView.snp.makeConstraints { make in
-            make.center.equalTo(imageContainer)
-            make.width.height.equalTo(300)
-        }
-        cellNameLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(imageContainer.snp.bottom).offset(20)
-            make.left.equalTo(view).offset(20)
-            make.right.equalTo(view).offset(-20)
-        }
-    }
-    
-    private func fillSettings() {
-        cellIconImageView.image = items?.cellImage
-        cellNameLabel.text = items?.cellTitle
-        imageContainer.backgroundColor = items?.cellBackgroundColor
-    }    
 }
+
+extension DetailController {
+    private func fillSettings() {
+        detailView?.cellIconImageView.image = items?.cellImage
+        detailView?.cellNameLabel.text = items?.cellTitle
+        detailView?.imageContainer.backgroundColor = items?.cellBackgroundColor
+    }
+    }
+

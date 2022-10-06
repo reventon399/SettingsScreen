@@ -9,8 +9,9 @@ import UIKit
 import SnapKit
 
 class SettingsView: UIView {
-
+    
     private var settingsItems = [[SettingsItems]]()
+    
     //MARK: - Configuration
     
     func configureView(with model: [[SettingsItems]]) {
