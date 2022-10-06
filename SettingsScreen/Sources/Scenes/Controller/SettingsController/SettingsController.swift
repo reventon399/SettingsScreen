@@ -10,16 +10,14 @@ import SnapKit
 
 final class SettingsController: UIViewController {
     
-//    private var settingsView = SettingsView()
+    //MARK: - Private properties
+    
     private var settingsView: SettingsView? {
         guard isViewLoaded else { return nil}
         return view as? SettingsView
     }
+    
     private var model:  SettingsModel?
-    
-    //MARK: - Outlets
-    
-  
     
     //MARK: - Lifecycle
     
@@ -32,8 +30,6 @@ final class SettingsController: UIViewController {
         setupDelegates()
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
-    //MARK: - Setup
 }
 
 //MARK: - Extension
@@ -90,9 +86,5 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
         } else {
             return 50
         }
-    }
-    
-    private func descripingPressedCell() {
-        
     }
 }
