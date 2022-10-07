@@ -10,18 +10,6 @@ import SnapKit
 
 class DetailView: UIView {
     
-    private var settingsItems = [[SettingsItems]]()
-    
-    //MARK: - Configuration
-    
-    func configureView(with model: [[SettingsItems]]) {
-        self.settingsItems = model
-    }
-    
-    func configure(items: SettingsItems) {
-        cellNameLabel.text = items.cellTitle
-        cellIconImageView.image = items.cellImage
-    }
     //MARK: - Outlets
     
     lazy var imageContainer: UIView = {

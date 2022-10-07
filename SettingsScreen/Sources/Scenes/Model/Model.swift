@@ -9,7 +9,6 @@ import UIKit
 
 struct SettingsItems {
     var cellImage: UIImage
-    var notificationImage: UIImage?
     var cellBackgroundColor: UIColor?
     var cellTitle: String
     var statusLabel: String?
@@ -77,7 +76,6 @@ final class SettingsModel {
             
             // third section
             [SettingsItems(cellImage: UIImage(systemName: "gear")!,
-                           notificationImage: UIImage(named: "notification")!,
                            cellBackgroundColor: .systemGray3,
                            cellTitle: "Основные",
                            isSwitchHidden: true),

@@ -47,22 +47,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		910CC24928EDAEBA00B9B4B5 /* SettingsController */ = {
-			isa = PBXGroup;
-			children = (
-				91DD915B28BF86AE001D3209 /* SettingsController.swift */,
-			);
-			path = SettingsController;
-			sourceTree = "<group>";
-		};
-		910CC24A28EDAECD00B9B4B5 /* DetailController */ = {
-			isa = PBXGroup;
-			children = (
-				91BFD3FE28C386930079A742 /* DetailController.swift */,
-			);
-			path = DetailController;
-			sourceTree = "<group>";
-		};
 		910CC24F28EDAFF100B9B4B5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,33 +56,65 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		910D84FC28E9B11C00FAAF4F /* Scenes */ = {
+		910CC25028F03FD300B9B4B5 /* SettingsScreenModule */ = {
 			isa = PBXGroup;
 			children = (
-				910D84FF28E9B13800FAAF4F /* Model */,
-				910D84FE28E9B13100FAAF4F /* View */,
-				910D84FD28E9B12300FAAF4F /* Controller */,
+				910CC25328F03FEF00B9B4B5 /* View */,
+				910CC25128F03FE400B9B4B5 /* Controller */,
 			);
-			path = Scenes;
+			path = SettingsScreenModule;
 			sourceTree = "<group>";
 		};
-		910D84FD28E9B12300FAAF4F /* Controller */ = {
+		910CC25128F03FE400B9B4B5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				910CC24928EDAEBA00B9B4B5 /* SettingsController */,
-				910CC24A28EDAECD00B9B4B5 /* DetailController */,
+				91DD915B28BF86AE001D3209 /* SettingsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		910D84FE28E9B13100FAAF4F /* View */ = {
+		910CC25328F03FEF00B9B4B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				910CC24F28EDAFF100B9B4B5 /* Cells */,
 				910CC24B28EDAFCE00B9B4B5 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		910CC25528F03FFA00B9B4B5 /* DetailScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				910CC25728F0400D00B9B4B5 /* View */,
+				910CC25628F0400500B9B4B5 /* Controller */,
+			);
+			path = DetailScreenModule;
+			sourceTree = "<group>";
+		};
+		910CC25628F0400500B9B4B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				91BFD3FE28C386930079A742 /* DetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		910CC25728F0400D00B9B4B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				910CC24D28EDAFD900B9B4B5 /* DetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		910D84FC28E9B11C00FAAF4F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				910D84FF28E9B13800FAAF4F /* Model */,
+				910CC25528F03FFA00B9B4B5 /* DetailScreenModule */,
+				910CC25028F03FD300B9B4B5 /* SettingsScreenModule */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		910D84FF28E9B13800FAAF4F /* Model */ = {

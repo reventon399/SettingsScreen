@@ -68,9 +68,8 @@ extension SettingsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailController()
         tableView.deselectRow(at: indexPath, animated: true)
-//        viewController.items =  model?.createSettings()[indexPath.section][indexPath.row]
+        viewController.items =  model?.createSettings()[indexPath.section][indexPath.row]
         guard let model = model?.createSettings()[indexPath.section][indexPath.row] else { return }
-        viewController.fillSettings(items: model)
         navigationController?.pushViewController(viewController, animated: true)
         print("Была нажата ячейка -> \(String(describing: model.cellTitle))")
     }

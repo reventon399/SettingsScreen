@@ -10,6 +10,7 @@ import UIKit
 final class DetailController: UIViewController {
     
     var items: SettingsItems?
+    
     //MARK: - Private properties
     
     private var detailView: DetailView? {
@@ -25,15 +26,15 @@ final class DetailController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view = DetailView()
+        fillSettings()
     }
 }
 
 extension DetailController {
-    func fillSettings(items: SettingsItems) {
-//        detailView?.cellIconImageView.image = items.cellImage
-//        detailView?.cellNameLabel.text = items.cellTitle
-//        detailView?.imageContainer.backgroundColor = items.cellBackgroundColor
-        detailView?.configure(items: items)
+    func fillSettings() {
+        detailView?.cellIconImageView.image = items?.cellImage
+        detailView?.cellNameLabel.text = items?.cellTitle
+        detailView?.imageContainer.backgroundColor = items?.cellBackgroundColor
     }
 }
 
